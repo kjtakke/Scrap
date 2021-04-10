@@ -409,7 +409,13 @@ Module Main
             str = folderDlg.SelectedPath
             Dim root As Environment.SpecialFolder = folderDlg.RootFolder
         End If
-        If Right(str, 11) = "\New folder" Then str = FolderPicker()
+        If Right(str, 11) = "\New folder" Then
+            folderDlg.ShowNewFolderButton = True
+            If (folderDlg.ShowDialog() = DialogResult.OK) Then
+                str = folderDlg.SelectedPath
+                Dim root As Environment.SpecialFolder = folderDlg.RootFolder
+            End If
+        End If
         Return str
     End Function
 
