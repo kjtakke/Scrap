@@ -45,10 +45,10 @@
         Me.Files = Me.Factory.CreateRibbonGroup
         Me.SingleCSV = Me.Factory.CreateRibbonButton
         Me.MultipleJSON = Me.Factory.CreateRibbonButton
+        Me.SaveEmails = Me.Factory.CreateRibbonButton
         Me.Attachments = Me.Factory.CreateRibbonGroup
         Me.AllAttachments = Me.Factory.CreateRibbonButton
         Me.JSONAndAttachmens = Me.Factory.CreateRibbonButton
-        Me.SaveEmails = Me.Factory.CreateRibbonButton
         Me.Button1 = Me.Factory.CreateRibbonButton
         Me.Email_Scrape.SuspendLayout()
         Me.Files.SuspendLayout()
@@ -80,6 +80,11 @@
         Me.MultipleJSON.Label = "MultipleJSON"
         Me.MultipleJSON.Name = "MultipleJSON"
         '
+        'SaveEmails
+        '
+        Me.SaveEmails.Label = "Text (.txt)"
+        Me.SaveEmails.Name = "SaveEmails"
+        '
         'Attachments
         '
         Me.Attachments.Items.Add(Me.AllAttachments)
@@ -97,11 +102,6 @@
         '
         Me.JSONAndAttachmens.Label = "JSON And Attachmens"
         Me.JSONAndAttachmens.Name = "JSONAndAttachmens"
-        '
-        'SaveEmails
-        '
-        Me.SaveEmails.Label = "Text (.txt)"
-        Me.SaveEmails.Name = "SaveEmails"
         '
         'Button1
         '

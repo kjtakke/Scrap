@@ -133,8 +133,8 @@ Module Main
             'Creating the main json array
             exportString = "{" & vbNewLine & vbTab &
                             """people"" : {" & vbNewLine & vbTab & vbTab &
-                                """to"" : """ & jsonArrays(1) & """," & vbNewLine & vbTab & vbTab &
-                                """cc"" : """ & jsonArrays(2) & """" & vbNewLine & vbTab &
+                                """to"" : " & jsonArrays(1) & "," & vbNewLine & vbTab & vbTab &
+                                """cc"" : " & jsonArrays(2) & vbNewLine & vbTab &
                             "}," & vbNewLine & vbTab
             exportString = exportString &
                             """names"" : {" & vbNewLine & vbTab & vbTab &
@@ -236,8 +236,8 @@ Module Main
             'Creating the main json array
             exportString = "{" & vbNewLine & vbTab &
                             """people"" : {" & vbNewLine & vbTab & vbTab &
-                                """to"" : """ & jsonArrays(1) & """," & vbNewLine & vbTab & vbTab &
-                                """cc"" : """ & jsonArrays(2) & """" & vbNewLine & vbTab &
+                                """to"" : " & jsonArrays(1) & "," & vbNewLine & vbTab & vbTab &
+                                """cc"" : " & jsonArrays(2) & vbNewLine & vbTab &
                             "}," & vbNewLine & vbTab
             exportString = exportString &
                             """names"" : {" & vbNewLine & vbTab & vbTab &
