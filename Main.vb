@@ -28,6 +28,8 @@ Module Main
 
         Const olMsg As Long = 0
         Dim path As String = FolderPicker()
+        'If Right(path, 11) = "\New folder" Then path = FolderPicker()
+        'path = Folder_Check(path)
 
         For Each olMail In objView.Selection
             FileName = olMail.Subject
@@ -87,6 +89,8 @@ Module Main
         Dim objView As Outlook.Explorer = myOlApp.ActiveExplorer
         Dim oMail As Outlook.MailItem
         Dim path As String = FolderPicker()
+        'If Right(path, 11) = "\New folder" Then path = FolderPicker()
+        'path = Folder_Check(path)
 
         For Each olMail In objView.Selection
             Dim FileName As String = olMail.Subject
@@ -122,6 +126,8 @@ Module Main
 
         On Error Resume Next
         filePathPicked = FolderPicker()
+        'If Right(filePathPicked, 11) = "\New folder" Then filePathPicked = FolderPicker()
+
         'MkDir "C:\Users\" & Environ("UserName") & "\" & FileLocation & "\Attachments\"
         exportString = ""
         For Each olMail In objView.Selection
@@ -225,6 +231,8 @@ Module Main
 
         On Error Resume Next
         filePathPicked = FolderPicker()
+        'If Right(filePathPicked, 11) = "\New folder" Then filePathPicked = FolderPicker()
+
         'MkDir "C:\Users\" & Environ("UserName") & "\" & FileLocation & "\Attachments\"
         exportString = ""
         For Each olMail In objView.Selection
@@ -330,7 +338,10 @@ Module Main
         Next
 
         ext = ".csv"
-        Dim FilePath As String = FolderPicker() & "\" & FileName()
+        Dim FilePath = FolderPicker()
+        'If Right(FilePath, 11) = "\New folder" Then FilePath = FolderPicker()
+
+        FilePath = FilePath & "\" & FileName()
         Dim csvTbl As String = ConvertToCSV(table)
         'Dim file As System.IO.StreamWriter
 
@@ -363,6 +374,8 @@ Module Main
         Dim FilePathConverter As String
 
         filePathPicked = FolderPicker()
+        'If Right(filePathPicked, 11) = "\New folder" Then filePathPicked = FolderPicker()
+
         'Set the objView Objext to be the users active Outlook window
         'Common Errors include:
         '   Lack of memory due to a 32 bit system
@@ -396,6 +409,7 @@ Module Main
             str = folderDlg.SelectedPath
             Dim root As Environment.SpecialFolder = folderDlg.RootFolder
         End If
+        If Right(str, 11) = "\New folder" Then str = FolderPicker()
         Return str
     End Function
 
@@ -612,4 +626,190 @@ en:
 
     '    currentRow = MyReader.ReadFields()
     'End Using
+
+
+    Private Function Folder_Check(FolderString As String) As String
+        Dim Characters(0 To 171) As String
+        Characters(0) = vbTab
+        Characters(1) = vbNewLine
+        Characters(2) = " "
+        Characters(3) = "`"
+        Characters(4) = "0"
+        Characters(5) = "1"
+        Characters(6) = "2"
+        Characters(7) = "3"
+        Characters(8) = "4"
+        Characters(9) = "5"
+        Characters(10) = "6"
+        Characters(11) = "7"
+        Characters(12) = "8"
+        Characters(13) = "9"
+        Characters(14) = "-"
+        Characters(15) = "–"
+        Characters(16) = "—"
+        Characters(17) = "!"
+        Characters(18) = """"
+        Characters(19) = "#"
+        Characters(20) = "$"
+        Characters(21) = "%"
+        Characters(22) = "&"
+        Characters(23) = "("
+        Characters(24) = ")"
+        Characters(25) = "*"
+        Characters(26) = ","
+        Characters(27) = "."
+        Characters(28) = ":"
+        Characters(29) = ";"
+        Characters(30) = "?"
+        Characters(31) = "@"
+        Characters(32) = "["
+        Characters(33) = "\"
+        Characters(34) = "]"
+        Characters(35) = "^"
+        Characters(36) = "_"
+        Characters(37) = "{"
+        Characters(38) = "|"
+        Characters(39) = "}"
+        Characters(40) = "~"
+        Characters(41) = "¡"
+        Characters(42) = "¦"
+        Characters(43) = "¨"
+        Characters(44) = "¯"
+        Characters(45) = "´"
+        Characters(46) = "¸"
+        Characters(47) = "¿"
+        Characters(48) = "˜"
+        Characters(49) = "‘"
+        Characters(50) = "’"
+        Characters(51) = "„"
+        Characters(52) = "‹"
+        Characters(53) = "›"
+        Characters(54) = "¢"
+        Characters(55) = "£"
+        Characters(56) = "¥"
+        Characters(57) = "€"
+        Characters(58) = "+"
+        Characters(59) = "<"
+        Characters(60) = "="
+        Characters(61) = ">"
+        Characters(62) = "±"
+        Characters(63) = "«"
+        Characters(64) = "»"
+        Characters(65) = "×"
+        Characters(66) = "÷"
+        Characters(67) = "©"
+        Characters(68) = "¬"
+        Characters(69) = "®"
+        Characters(70) = "°"
+        Characters(71) = "µ"
+        Characters(72) = "·"
+        Characters(73) = "…"
+        Characters(74) = "†"
+        Characters(75) = "‡"
+        Characters(76) = "•"
+        Characters(77) = "‰"
+        Characters(78) = "¼"
+        Characters(79) = "½"
+        Characters(80) = "¾"
+        Characters(81) = "¹"
+        Characters(82) = "²"
+        Characters(83) = "³"
+        Characters(84) = "a"
+        Characters(85) = "A"
+        Characters(86) = "á"
+        Characters(87) = "à"
+        Characters(88) = "â"
+        Characters(89) = "ä"
+        Characters(90) = "Ã"
+        Characters(91) = "å"
+        Characters(92) = "æ"
+        Characters(93) = "b"
+        Characters(94) = "B"
+        Characters(95) = "c"
+        Characters(96) = "C"
+        Characters(97) = "Ç"
+        Characters(98) = "d"
+        Characters(99) = "D"
+        Characters(100) = "Ð"
+        Characters(101) = "e"
+        Characters(102) = "E"
+        Characters(103) = "é"
+        Characters(104) = "è"
+        Characters(105) = "ê"
+        Characters(106) = "ë"
+        Characters(107) = "f"
+        Characters(108) = "F"
+        Characters(109) = "ƒ"
+        Characters(110) = "g"
+        Characters(111) = "G"
+        Characters(112) = "h"
+        Characters(113) = "H"
+        Characters(114) = "i"
+        Characters(115) = "I"
+        Characters(116) = "í"
+        Characters(117) = "ì"
+        Characters(118) = "î"
+        Characters(119) = "ï"
+        Characters(120) = "j"
+        Characters(121) = "J"
+        Characters(122) = "k"
+        Characters(123) = "K"
+        Characters(124) = "l"
+        Characters(125) = "L"
+        Characters(126) = "m"
+        Characters(127) = "M"
+        Characters(128) = "n"
+        Characters(129) = "N"
+        Characters(130) = "ñ"
+        Characters(131) = "o"
+        Characters(132) = "O"
+        Characters(133) = "ó"
+        Characters(134) = "ò"
+        Characters(135) = "ô"
+        Characters(136) = "ö"
+        Characters(137) = "Õ"
+        Characters(138) = "Ø"
+        Characters(139) = "Œ"
+        Characters(140) = "p"
+        Characters(141) = "P"
+        Characters(142) = "q"
+        Characters(143) = "Q"
+        Characters(144) = "r"
+        Characters(145) = "R"
+        Characters(146) = "s"
+        Characters(147) = "S"
+        Characters(148) = "Š"
+        Characters(149) = "ß"
+        Characters(150) = "t"
+        Characters(151) = "T"
+        Characters(152) = "Þ"
+        Characters(153) = "™"
+        Characters(154) = "u"
+        Characters(155) = "U"
+        Characters(156) = "ú"
+        Characters(157) = "ù"
+        Characters(158) = "û"
+        Characters(159) = "ü"
+        Characters(160) = "v"
+        Characters(161) = "V"
+        Characters(162) = "w"
+        Characters(163) = "W"
+        Characters(164) = "x"
+        Characters(165) = "X"
+        Characters(166) = "y"
+        Characters(167) = "Y"
+        Characters(168) = "Ý"
+        Characters(169) = "ÿ"
+        Characters(170) = "z"
+        Characters(171) = "Z"
+
+
+        For i As Int16 = 0 To UBound(Characters)
+            If InStr(FolderString, "New folder\" & Characters(i)) Then FolderString = Replace(FolderString, "New Folder\", "")
+        Next
+        Return FolderString
+
+    End Function
+
+
 End Module
